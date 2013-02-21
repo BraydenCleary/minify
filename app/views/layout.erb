@@ -7,20 +7,20 @@
     See: http://necolas.github.com/normalize.css/
   -->
   <link rel="stylesheet" href="/css/normalize.css">
+  <link rel='stylesheet' href='/css/main.css'>
 
   <title></title>
 </head>
 <body>
 
   <div class='nav-bar'>
-    <a href='/urls'>Home</a>
+    <span class='left-nav'><a href='/urls'>Home</a></span>
     <% if session[:user_id] %>
-      <a href="/users/<%=session[:user_id]%>">My Profile</a>
-      <a href='/logout'>Logout</a>
-
+      <span class='left-nav'><a href="/users/<%=session[:user_id]%>">My Profile</a></span>
+      <span class='right-nav'><a href='/logout'>Logout</a></span>
     <% else %>
-      <a href='/signin'>Sign In!</a>
-      <a href='/users/new'>Sign Up!</a>
+      <span class='right-nav'><a href='/signin'>Sign In!</a></span>
+      <span class='right-nav'><a href='/users/new'>Sign Up!</a></span>
     <% end %>
   </div>
 

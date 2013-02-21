@@ -1,7 +1,9 @@
-<h1>Welcome to Minify</h1>
-<h2>The premiere url shortening network.</h2>
+<div class='welcome'>
+  <h1>Welcome to <span class='site_name'>Minify</span></h1>
+  <h2>The world's premiere url shortening network.</h2>
+</div>
 
-<form action='/urls' method='post'>
+<form id='home-form' action='/urls' method='post'>
 
   <label for='long'>Url to shorten:</label>
   <input type='text' name='long' id='long'>
@@ -9,13 +11,17 @@
   <input type='submit' name='submit' value='Shorten Url'>
 </form>
 
-<h1>All Shortened Urls:</h1>
+<span id='shortened_url'><h3>All Shortened Urls:</h3></span>
 
-<ul>
+<ul class='list-of-urls'>
 <% @urls.each do |url| %>
-  <% user = User.find(url.user_id) %>
-  <li>Url: <a href="/urls/<%= url.short %>"><%= url.short %></a> 
-      Click Count: <%= url.click_count %> 
-      User: <a href="/users/<%= user.id %>"><%= user.first_name %> <%= user.last_name %></a></li>
+    <div class='url-list'>
+      <li><span class='element'>Url:</span> <a href="/urls/<%= url.short %>"><%= url.short %></a></li>
+      <li><span class='element'>Click Count:</span> <%= url.click_count %></li>
+      <% unless url.user_id.nil? %>  <%# Is this where I would write a view helper method? %>
+        <% user = User.find(url.user_id) %>
+        <li><span class='element'>User:</span> <a href="/users/<%= user.id %>"><%= user.first_name %> <%= user.last_name %></a></li>  
+      <% end %>
+    </div>
 <% end %>
 </ul>

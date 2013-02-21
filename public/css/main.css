@@ -1,0 +1,92 @@
+.nav-bar {
+  width: 960px;
+  background-color: black;
+  font-family: Georgia;
+}
+
+.error {
+  font-weight: bold;
+  color: #990033;
+}
+
+.notice {
+  font-weight: bold;
+  color: green;
+}
+
+.nav-bar .left-nav a {
+  text-decoration: none;
+  color: white;
+  margin-left: 20px;
+}
+
+.nav-bar .right-nav a {
+  text-decoration: none;
+  color: white;
+  float: right;
+  margin-right: 20px;
+}
+
+.welcome {
+  width: 960px;
+  font-family: Georgia;
+}
+
+.welcome h1 {
+  text-align: center;
+  padding: 0px;
+  margin: 10px;
+}
+
+.welcome h2{
+  text-align: center;
+  padding: 0px;
+  margin: 0px 0px 10px 0px;
+
+}
+
+.site_name {
+  color: #505050;
+  text-shadow: 0.05em .05em #000000;
+}
+
+#shortened_url {
+  width: 960;
+  text-align: center;
+}
+
+.url-list .element {
+  font-weight: bold;
+}
+
+.url-list a {
+  text-decoration: none;
+  color: #000099;
+}
+
+.list-of-urls {
+  width: 960px;
+}
+
+.url-list {
+  list-style: none;
+  float: left;
+  margin: 5px 15px;
+}
+
+#home-form    {
+  margin:auto;
+  position:relative;
+  width:400px;
+  height:30px;
+  font-family: Georgia;
+  font-size: 14px;
+  line-height: 24px;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 10px;
+  padding:10px;
+  border: 1px solid #999;
+  box-shadow: 0px 0px 8px #000000;
+}
+

@@ -12,12 +12,16 @@ get '/urls' do
 end
 
 post '/urls' do
-  @url = Url.new(:long => params['long'], :user_id => session[:user_id])
+  if session[:user_id]
+    @url = Url.new(:long => params['long'], :user_id => session[:user_id])
+  else
+    @url = Url.new(:long => params['long'])
+  end
   if @url.save
     @user
     redirect to ('/urls')
   else
-    @messages[:notice] = "Url shorten unsuccessful."
+    @messages[:error] = "Url shorten unsuccessful."
     erb :urls
   end
 end
