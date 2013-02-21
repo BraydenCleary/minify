@@ -1,0 +1,7 @@
+<a href='/'>Home</a>
+
+<ul>
+<% @url.errors.each do |field, message| %>
+  <li><%= message %></li>
+<% end %>
+</ul>

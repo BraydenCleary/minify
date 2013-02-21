@@ -1,0 +1,9 @@
+<h1><%= @user.first_name %> <%= @user.last_name %>'s Minify Profile Page</h1>
+
+Username: <%= @user.username %><br/>
+Email: <%= @user.email %><br/>
+
+<% if session["user_id"] == @user.id %>
+  <a href="/users/<%= session[:user_id] %>/edit">Edit Profile</a>
+<% end %>
+
