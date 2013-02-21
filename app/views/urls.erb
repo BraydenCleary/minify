@@ -19,8 +19,7 @@
       <li><span class='element'>Url:</span> <a href="/urls/<%= url.short %>"><%= url.short %></a></li>
       <li><span class='element'>Click Count:</span> <%= url.click_count %></li>
       <% unless url.user_id.nil? %>  <%# Is this where I would write a view helper method? %>
-        <% user = User.find(url.user_id) %>
-        <li><span class='element'>User:</span> <a href="/users/<%= user.id %>"><%= user.first_name %> <%= user.last_name %></a></li>  
+        <li><span class='element'>User:</span> <a href="/users/<%= url.user.id %>"><%= url.user.first_name %> <%= url.user.last_name %></a></li>  
       <% end %>
     </div>
 <% end %>
