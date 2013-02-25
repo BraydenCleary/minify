@@ -4,7 +4,7 @@ $(document).ready(function(){
     debugger
     $.ajax({
       type: this.method
-      url:  this.action
+      
     })
   });
 });
