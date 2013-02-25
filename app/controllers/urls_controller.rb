@@ -7,19 +7,20 @@ get '/' do
 end
 
 get '/urls' do
+  @urls = Url.all
   erb :urls
   # Look in app/views/index.erb
 end
 
 post '/urls' do
+  content_type :json
   if session[:user_id]
     @url = Url.new(:long => params['long'], :user_id => session[:user_id])
   else
     @url = Url.new(:long => params['long'])
   end
   if @url.save
-    @user
-    redirect to ('/urls')
+    @ur.to_json
   else
     @messages[:error] = "Url shorten unsuccessful."
     erb :urls
