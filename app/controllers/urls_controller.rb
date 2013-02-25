@@ -7,7 +7,6 @@ get '/' do
 end
 
 get '/urls' do
-  @urls = Url.all
   erb :urls
   # Look in app/views/index.erb
 end
@@ -16,11 +15,13 @@ post '/urls' do
   content_type :json
   if session[:user_id]
     @url = Url.new(:long => params['long'], :user_id => session[:user_id])
+    @user = User.find(@url.user_id)
   else
     @url = Url.new(:long => params['long'])
   end
   if @url.save
-    @ur.to_json
+    @urls = Url.all.sort { |a,b| b.click_count <=> a.click_count}
+    {url: @url, user: @user}.to_json
   else
     @messages[:error] = "Url shorten unsuccessful."
     erb :urls
